@@ -18,6 +18,7 @@ To get started with the project, follow the steps below:
 1. Clone the repository:
    git clone https://github.com/Aeron-Aeron/Disease_Classification.git
 2. Set up your environment (instructions coming soon).
+
 Features Planned:
  Improved disease-symptom analysis algorithms
  Enhanced UI for user input and result display
