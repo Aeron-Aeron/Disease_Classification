@@ -23,7 +23,11 @@ Features Planned:
  Enhanced UI for user input and result display
  Database seeding with a larger symptom dataset
  RESTful API for external access
+
+
 Thanks for checking it out! ✨
+
+
 Feel free to contribute or raise issues.
 
 Created by Anjal
