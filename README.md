@@ -20,10 +20,10 @@ To get started with the project, follow the steps below:
 2. Set up your environment (instructions coming soon).
 
 Features Planned:
- Improved disease-symptom analysis algorithms
- Enhanced UI for user input and result display
- Database seeding with a larger symptom dataset
- RESTful API for external access
+ 1. Improved disease-symptom analysis algorithms
+ 2. Enhanced UI for user input and result display
+ 3. Database seeding with a larger symptom dataset
+ 4. RESTful API for external access
 
 
 Thanks for checking it out! ✨
