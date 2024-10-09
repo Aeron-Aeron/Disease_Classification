@@ -29,6 +29,18 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        // Check the user's role and redirect accordingly
+    $role = Auth::user()->role; // Get the role of the authenticated user
+
+    switch ($role) {
+        case 'admin':
+        case 'doctor':
+        case 'patient':
+            return redirect()->route('dashboard'); // Redirect to the dashboard for any of these roles
+        default:
+            return redirect('/'); // Fallback if role does not match
+    }
+
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 

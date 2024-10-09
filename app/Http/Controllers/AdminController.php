@@ -11,7 +11,7 @@ class AdminController extends Controller
     public function index()
     {
         $users = User::where('role', '!=', 'admin')->get(); // Exclude existing admins
-        return view('admin.users', compact('users'));
+        return view('dashboard.dashboard', compact('users'));
     }
 
     // Promote a user to admin
@@ -22,6 +22,22 @@ class AdminController extends Controller
         $user->save();
 
         return redirect()->back()->with('success', 'User has been promoted to Admin');
+    }
+    public function removeAdmin($id)
+    {
+        $user = User::findOrFail($id);
+        $user->role = 'patient';
+        $user->save();
+
+        return redirect()->back()->with('success', 'User has been demoted from Admin');
+    }
+
+    public function user(){
+        $currentUserId = auth()->id();
+        
+        $users = User::where('id', '!=', $currentUserId)->get();
+    
+        return view('admin.users.users', compact('users'));
     }
 }
 
