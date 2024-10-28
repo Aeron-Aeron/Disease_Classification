@@ -35,10 +35,11 @@ class AuthenticatedSessionController extends Controller
     switch ($role) {
         case 'admin':
         case 'doctor':
+            return redirect()->route('dashboard');
         case 'patient':
-            return redirect()->route('dashboard'); // Redirect to the dashboard for any of these roles
+            return redirect('/');
         default:
-            return redirect('/'); // Fallback if role does not match
+        return redirect()->route('/');
     }
 
         return redirect()->intended(RouteServiceProvider::HOME);

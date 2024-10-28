@@ -83,16 +83,27 @@ http://www.tooplate.com/view/2098-health
                     <li><a href="#top" class="smoothScroll">Home</a></li>
                     <li><a href="#about" class="smoothScroll">About Us</a></li>
                     <li><a href="#team" class="smoothScroll">Doctors</a></li>
-                    <li><button class="btn btn-primary">
-                         <a href="{{route('dashboard')}}" class="smoothScroll">Dashboard</a></button></li>
                     <!-- <li><a href="#news" class="smoothScroll">News</a></li> -->
                     <!-- <li><a href="#google-map" class="smoothScroll">Contact</a></li> -->
                     <!-- <li class="appointment-btn"><a href="#appointment">Make an appointment</a></li> -->
 
                     @if (Auth::check())
+                        @if (Auth::user()->role === 'doctor' || Auth::user()->role === 'admin')
+                            <li><button class="btn btn-primary">
+                                    <a href="{{ route('dashboard') }}">Dashboard</a></button>
+                                </li>
+                        @endif
+
                         <li class="appointment-btn">
                             <span>Welcome, {{ Auth::user()->name }}</span> <!-- Display user's name -->
                         </li>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <li class="appointment-btn"><button type="submit" class="btn btn-danger">
+                                logout</button>
+                            </li>
+                        </form>
+                        
                     @else
                         <li class="appointment-btn"><a href="{{ url('/login') }}">Login</a></li>
                         <li class="appointment-btn"><a href="{{ url('/register') }}">Register</a></li>

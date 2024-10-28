@@ -21,8 +21,8 @@
         Route::post('/admin/users/{id}/remove-admin', [AdminController::class, 'removeAdmin'])->name('admin.removeAdmin');
     });;
 
-    Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard')->middleware('auth');
-   
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard')->middleware(['auth', 'role:admin,doctor']);
+
     
 
 require __DIR__.'/auth.php';
